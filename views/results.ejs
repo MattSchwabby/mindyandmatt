@@ -1,0 +1,85 @@
+<% 
+var index = 0
+results.forEach(function(result)
+{ %>
+    <%
+    if(result.rsvp_ceremony_and_reception>=1)
+    {
+        var attending = "is currently RSVPed for the reception and ceremony."
+    }
+    else
+    {
+        var attending = "has not yet RSVPed for the reception or ceremony."
+    }
+    %>
+    <p><%= result.name %> <%= attending %></p>
+    <%
+})
+%>
+
+
+<div class="row text-left">
+    <% results.forEach(function(result)
+    {
+        if(result.rsvp_ceremony_and_reception>=1)
+        {
+            var attending = "checked"
+            var isntAttending = ""
+        }
+        else
+        {
+            var attending = ""
+            var isntAttending = "checked"
+        }
+    %>
+        <p class="lead">Edit reservation: <%= result.name %></p>
+        <form class="form-horizontal" action="/rsvp/guests/update" method="GET">
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="name">Name</label>
+                <div class="col-md-4">
+                    <input id="textinput" class="form-control input-md" required type="text" name="name<%=index%>" value="<%=result.name%>" placeholder="<%=result.name%>"></input>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="name">Will be attending</label>
+                <div class="col-md-4">
+                    <input class="form-control input-md" required type="radio" name="rsvp_ceremony_and_reception<%=index%>" value="TRUE" placeholder="<%=result.rsvp_ceremony_and_reception%>" <%=attending%>></input>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="name">Will not be attending</label>
+                <div class="col-md-4">
+                    <input class="form-control input-md" required type="radio" name="rsvp_ceremony_and_reception<%=index%>" value="FALSE" placeholder="<%=result.rsvp_ceremony_and_reception%>" <%=isntAttending%>></input>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <input id="textinput" class="form-control input-md" required type="hidden" name="household_id" value="<%=result.household_id%>"></input>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <input id="textinput" class="form-control input-md" required type="hidden" name="guest_id<%=index%>" value="<%=result.id%>"></input>
+                </div>
+            </div>
+
+        
+        <%  index++    
+        }) %>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <input id="textinput" class="form-control input-md" required type="hidden" name="first_name" value="<%=name.first_name%>"></input>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <input id="textinput" class="form-control input-md" required type="hidden" name="last_name" value="<%=name.last_name%>"></input>
+                </div>
+            </div>
+           <div class="form-group">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <button type="submit" class="btn btn-primary btn-block"><i class="icon-user-plus"></i> Submit</button>
+                </div>
+            </div>
+        </form>
+</div>

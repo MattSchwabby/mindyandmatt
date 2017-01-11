@@ -1,0 +1,19 @@
+{
+  "name": "wedding-rsvp",
+  "version": "1.0.0",
+  "description": "Web app to facilitate easy RSVP functionality for wedding guests",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matt Schwabenbauer",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "method-override": "^2.3.7",
+    "mysql": "^2.12.0"
+  }
+}
