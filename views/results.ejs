@@ -1,3 +1,13 @@
+<% include partials/header2 %>
+<div class="smaller-header">
+    <div class="container">
+    <div class="intro-text">
+                <div class="intro-lead-in"><h1>RSVP search results</h1></div>
+        </div>
+        
+    </div>
+</div>
+<div class="container">
 <% 
 var index = 0
 results.forEach(function(result)
@@ -62,8 +72,6 @@ results.forEach(function(result)
                     <input id="textinput" class="form-control input-md" required type="hidden" name="guest_id<%=index%>" value="<%=result.id%>"></input>
                 </div>
             </div>
-
-        
         <%  index++    
         }) %>
             <div class="form-group">
@@ -76,6 +84,11 @@ results.forEach(function(result)
                     <input id="textinput" class="form-control input-md" required type="hidden" name="last_name" value="<%=name.last_name%>"></input>
                 </div>
             </div>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <input id="textinput" class="form-control input-md" required type="hidden" name="totalGuests" value="<%=index%>"></input>
+                </div>
+            </div>
            <div class="form-group">
                 <div class="col-sm-4 col-sm-offset-4">
                     <button type="submit" class="btn btn-primary btn-block"><i class="icon-user-plus"></i> Submit</button>
@@ -83,3 +96,9 @@ results.forEach(function(result)
             </div>
         </form>
 </div>
+
+<a href="../">Search for another reservation</a>
+<a href="../../../">Return to the index</a>
+</div>
+
+<% include partials/footer %>

@@ -767,3 +767,32 @@ a{
 {
   overflow:hidden;
 }
+
+.smaller-header
+{
+  padding-top: 100px;
+
+  background-color: #0D263F;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  color:white;
+  margin-bottom: 100px;
+}
+
+.smaller-header h1
+{
+  padding-bottom: 50px;
+}
+
+@media (max-width: 767px)
+  {
+  .search
+  {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}

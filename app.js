@@ -4,6 +4,8 @@ var    app             = express();
 var    bodyParser      = require("body-parser");
 var    methodOverride = require("method-override");
 var flash = require("connect-flash");
+var updateDB = require("./updateDB");
+var async = require("async");
 
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -23,7 +25,7 @@ app.get("/", function(req, res)
 
 app.get("/rsvp", function(req, res)
 {
-    res.render("rsvp");
+    res.render("search");
 });
 
 app.get("/rsvp/search", function(req, res)
@@ -31,7 +33,7 @@ app.get("/rsvp/search", function(req, res)
    res.render("search"); 
 });
 
-app.get("rsvp/search/user", function(req, res)
+app.get("/rsvp/search/user", function(req, res)
 {
     var name =[];
     name.first_name = req.query.first_name;
@@ -87,8 +89,497 @@ app.get("rsvp/search/user", function(req, res)
     });
 });
 
-// app.get("/rsvp/guests/update", function(req, res)
-// {
+app.get("/rsvp/guests/update", function(req, res)
+{
+    // var statements = [];
+    
+    var connection = mysql.createConnection(
+    {
+        hostname: process.env.DATABASECONNECTION,
+        host: process.env.DATABASECONNECTION,
+        port: process.env.DATABASEPORT,
+        user: process.env.DATABASEUSER,
+        password: process.env.DATABASEPASS,
+        database: 'guest_list'
+    });
+    
+    connection.connect();
+    
+    if(req.query.name5)
+    {
+        console.log("SIX ENTRIES");
+        // var statements = [];
+        var statement = "UPDATE guests SET name='"+ req.query.name0 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception0 + " WHERE id=" + req.query.guest_id0 + ";";
+        function firstQueryFunction(callback)
+        {
+            connection.query(statement, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        var statement2 = "UPDATE guests SET name='"+ req.query.name1 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception1 + " WHERE id=" + req.query.guest_id1 + ";";
+        function secondQueryFunction(callback)
+        {
+            connection.query(statement2, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        var statement3 = "UPDATE guests SET name='"+ req.query.name2 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception2 + " WHERE id=" + req.query.guest_id2 + ";";
+        function thirdQueryFunction(callback)
+        {
+            connection.query(statement3, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        var statement4 = "UPDATE guests SET name='"+ req.query.name3 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception3 + " WHERE id=" + req.query.guest_id3 + ";";
+        function fourthQueryFunction(callback)
+        {
+            connection.query(statement4, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        var statement5 = "UPDATE guests SET name='"+ req.query.name4 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception4 + " WHERE id=" + req.query.guest_id4 + ";";
+        function fifthQueryFunction(callback)
+        {
+            connection.query(statement5, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        var statement6 = "UPDATE guests SET name='"+ req.query.name5 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception5 + " WHERE id=" + req.query.guest_id5 + ";";
+        function sixthQueryFunction(callback)
+        {
+            connection.query(statement6, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        // statements.push(statement, statement2, statement3, statement4, statement5, statement6);
+        async.parallel([
+        firstQueryFunction,
+        secondQueryFunction,
+        thirdQueryFunction,
+        fourthQueryFunction,
+        fifthQueryFunction,
+        sixthQueryFunction,
+        ], function (err, result)
+        {
+            if(err)
+            {
+                console.log(err);
+            }
+            else
+            {
+                res.redirect(req.get('referer'));
+            }
+         //This code will be executed after all previous queries are done (the order doesn't matter).
+         //For example you can do another query that depends of the result of all the previous queries.
+        });
+        
+    }
+    else if(req.query.name4)
+    {
+        console.log("FIVE ENTRIES");     
+        // var statements = [];
+        var statement = "UPDATE guests SET name='"+ req.query.name0 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception0 + " WHERE id=" + req.query.guest_id0 + ";";
+        function firstQueryFunction(callback)
+        {
+            connection.query(statement, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        var statement2 = "UPDATE guests SET name='"+ req.query.name1 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception1 + " WHERE id=" + req.query.guest_id1 + ";";
+        function secondQueryFunction(callback)
+        {
+            connection.query(statement2, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        var statement3 = "UPDATE guests SET name='"+ req.query.name2 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception2 + " WHERE id=" + req.query.guest_id2 + ";";
+        function thirdQueryFunction(callback)
+        {
+            connection.query(statement3, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        var statement4 = "UPDATE guests SET name='"+ req.query.name3 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception3 + " WHERE id=" + req.query.guest_id3 + ";";
+        function fourthQueryFunction(callback)
+        {
+            connection.query(statement4, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        var statement5 = "UPDATE guests SET name='"+ req.query.name4 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception4 + " WHERE id=" + req.query.guest_id4 + ";";
+        function fifthQueryFunction(callback)
+        {
+            connection.query(statement5, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        async.parallel([
+        firstQueryFunction,
+        secondQueryFunction,
+        thirdQueryFunction,
+        fourthQueryFunction,
+        fifthQueryFunction
+        ], function (err, result)
+        {
+            if(err)
+            {
+                console.log(err);
+            }
+            else
+            {
+                res.redirect(req.get('referer'));
+            }
+         //This code will be executed after all previous queries are done (the order doesn't matter).
+         //For example you can do another query that depends of the result of all the previous queries.
+        }); //async
+        // statements.push(statement, statement2, statement3, statement4, statement5);
+    }
+    else if(req.query.name3)
+    {
+        console.log("FOUR ENTRIES");
+        var statements = [];
+        var statement = "UPDATE guests SET name='"+ req.query.name0 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception0 + " WHERE id=" + req.query.guest_id0 + ";";
+        function firstQueryFunction(callback)
+        {
+            connection.query(statement, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        var statement2 = "UPDATE guests SET name='"+ req.query.name1 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception1 + " WHERE id=" + req.query.guest_id1 + ";";
+        function secondQueryFunction(callback)
+        {
+            connection.query(statement2, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        var statement3 = "UPDATE guests SET name='"+ req.query.name2 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception2 + " WHERE id=" + req.query.guest_id2 + ";";
+        function thirdQueryFunction(callback)
+        {
+            connection.query(statement3, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        var statement4 = "UPDATE guests SET name='"+ req.query.name3 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception3 + " WHERE id=" + req.query.guest_id3 + ";";
+        function fourthQueryFunction(callback)
+        {
+            connection.query(statement4, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        async.parallel([
+        firstQueryFunction,
+        secondQueryFunction,
+        thirdQueryFunction,
+        fourthQueryFunction
+        ], function (err, result)
+        {
+            if(err)
+            {
+                console.log(err);
+            }
+            else
+            {
+                res.redirect(req.get('referer'));
+            }
+         //This code will be executed after all previous queries are done (the order doesn't matter).
+         //For example you can do another query that depends of the result of all the previous queries.
+        }); //async
+        // statements.push(statement, statement2, statement3, statement4);
+    }
+    else if(req.query.name2)
+    {
+        console.log("THREE ENTRIES");
+        // var statements = [];
+        var statement = "UPDATE guests SET name='"+ req.query.name0 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception0 + " WHERE id=" + req.query.guest_id0 + ";";
+        function firstQueryFunction(callback)
+        {
+            connection.query(statement, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        var statement2 = "UPDATE guests SET name='"+ req.query.name1 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception1 + " WHERE id=" + req.query.guest_id1 + ";";
+        function secondQueryFunction(callback)
+        {
+            connection.query(statement2, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        var statement3 = "UPDATE guests SET name='"+ req.query.name2 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception2 + " WHERE id=" + req.query.guest_id2 + ";";
+        function thirdQueryFunction(callback)
+        {
+            connection.query(statement3, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        async.parallel([
+        firstQueryFunction,
+        secondQueryFunction,
+        thirdQueryFunction
+        ], function (err, result)
+        {
+            if(err)
+            {
+                console.log(err);
+            }
+            else
+            {
+                res.redirect(req.get('referer'));
+            }
+         //This code will be executed after all previous queries are done (the order doesn't matter).
+         //For example you can do another query that depends of the result of all the previous queries.
+        }); //async
+        // statements.push(statement, statement2, statement3);
+    }
+    else if(req.query.name1)
+    {
+        console.log("TWO ENTRIES");
+        // var statements = [];
+        var statement = "UPDATE guests SET name='"+ req.query.name0 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception0 + " WHERE id=" + req.query.guest_id0 + ";";
+        function firstQueryFunction(callback)
+        {
+            connection.query(statement, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        var statement2 = "UPDATE guests SET name='"+ req.query.name1 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception1 + " WHERE id=" + req.query.guest_id1 + ";";
+        function secondQueryFunction(callback)
+        {
+            connection.query(statement2, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+        // statements.push(statement, statement2);
+        async.parallel([
+        firstQueryFunction,
+        secondQueryFunction
+        ], function (err, result)
+        {
+            if(err)
+            {
+                console.log(err);
+            }
+            else
+            {
+                res.redirect(req.get('referer'));
+            }
+         //This code will be executed after all previous queries are done (the order doesn't matter).
+         //For example you can do another query that depends of the result of all the previous queries.
+        }); //async
+    }
+    else
+    {
+        console.log("ONE ENTRY");
+        var statements = [];
+        var statement = "UPDATE guests SET name='"+ req.query.name0 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception0 + " WHERE id=" + req.query.guest_id0 + ";";
+        function firstQueryFunction(callback)
+        {
+            connection.query(statement, function(err,rows,fields)
+            {
+                if(err)
+                {
+                    console.log(err)
+                }
+                else
+                {
+                    callback(null);
+                }
+            })
+        }
+                async.parallel([
+        firstQueryFunction
+        ], function (err, result)
+        {
+            if(err)
+            {
+                console.log(err);
+            }
+            else
+            {
+                res.redirect(req.get('referer'));
+            }
+         //This code will be executed after all previous queries are done (the order doesn't matter).
+         //For example you can do another query that depends of the result of all the previous queries.
+        }); //async
+        // statements.push(statement);
+    }
+
+});
+
+
+///UPDATE AS OF TUESDAY JAN 10 EVENING
+///////////////////////////////////
+
+
+    // updateDB(req.query, function(response)
+    // {
+    //     console.log(response);
+    // });
+    
+    
+    /// OLD CODE FOLLOWS
+
+//
+// 
 //     var connection = mysql.createConnection(
 //     {
 //         hostname: process.env.DATABASECONNECTION,
@@ -160,42 +651,39 @@ app.get("rsvp/search/user", function(req, res)
     
 //     connection.connect();
     
-//     var updateSQLDB = function(inputArray)
+
+//     statements.forEach(function(item)
 //     {
-//         inputArray.forEach(function(item)
+//         connection.query(item, function(err,rows,fields)
 //         {
-//             connection.query(item, function(err,rows,fields)
+//             if(err)
 //             {
-//                 if(err)
-//                 {
-//                     console.log(err)
-//                 }
-//                 else
-//                 {
-                    
-//                 }
-//             })
-//         });
-//     };
-    
-//     var callUpdateFunction = function(callback)
-//     {
-//         updateSQLDB(statements);
-//         connection.query("SELECT * FROM guests WHERE household_id = " + req.query.household_id[0], function(err, rows, fields)
-//         {
-//             if (err)
-//             {
-//                 console.log(err);
+//                 console.log(err)
 //             }
 //             else
 //             {
-//                 var name =[];
-//                 name.first_name=req.query.first_name;
-//                 name.last_name=req.query.last_name;
-//                 res.render("results", {results: rows, name: name});
+                
 //             }
-//         });
-//     };
+//         })
+//     });
+
+//     connection.query("SELECT * FROM guests WHERE household_id = " + req.query.household_id[0], function(err, rows, fields)
+//     {
+//         if (err)
+//         {
+//             console.log(err);
+//         }
+//         else
+//         {
+//             var name =[];
+//             name.first_name=req.query.first_name;
+//             name.last_name=req.query.last_name;
+//             res.render("results", {results: rows, name: name});
+//         }
+//     });
+
+
+
 
 app.listen(process.env.PORT, process.env.IP, function()
 {
@@ -264,4 +752,4 @@ app.listen(process.env.PORT, process.env.IP, function()
 // console.log(process.env.DATABASECONNECTION);
 // console.log(process.env.DATABASEPORT);
 // console.log(process.env.DATABASEUSER);
-// console.log(process.env.DATABASEPASS);
+// console.log(process.env.DATABASEPASS)

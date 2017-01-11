@@ -1,7 +1,18 @@
+<% include partials/header2 %>
+
+<div class="smaller-header">
+    <div class="container">
+        <div class="intro-text">
+        <div class="intro-lead-in"><h1>RSVP</h1></div>
+    </div>
+    </div>
+</div>
+<div class="container search">
+
 <div class="row text-left">
     <form class="form-horizontal" action="/rsvp/search/user/" method="GET">
         <legend>
-            Search for a reservation
+            Search for an RSVP reservation by first and last name
         </legend>
         <div class="form-group">
             <label class="col-md-4 control-label" for="user">First Name</label>
@@ -24,3 +35,7 @@
         </div>
         </div>
     </form>
+    <a href="../../../">Return to the index</a>
+</div>
+
+<% include partials/footer %>
