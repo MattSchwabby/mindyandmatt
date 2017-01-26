@@ -4,7 +4,6 @@ var    app             = express();
 var    bodyParser      = require("body-parser");
 var    methodOverride = require("method-override");
 var flash = require("connect-flash");
-var updateDB = require("./updateDB");
 var async = require("async");
 
 

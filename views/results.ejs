@@ -1,4 +1,5 @@
-<% include partials/header2 %>
+<% include partials/header %>
+
 <div class="smaller-header">
     <div class="container">
     <div class="intro-text">
@@ -7,19 +8,23 @@
         
     </div>
 </div>
-<div class="container">
+<div class="container search">
 <% 
 var index = 0
 results.forEach(function(result)
 { %>
     <%
-    if(result.rsvp_ceremony_and_reception>=1)
+    if(result.rsvp_ceremony_and_reception=1)
     {
-        var attending = "is currently RSVPed for the reception and ceremony."
+        var attending = "will be attending the ceremony and reception."
     }
-    else
+    else if(result.rsvp_ceremony_and_reception=0)
     {
-        var attending = "has not yet RSVPed for the reception or ceremony."
+        var attending = "will not be attending the reception and ceremony."
+    }
+        else if(result.rsvp_ceremony_and_reception=1)
+    {
+        var attending = "has not yet RSVP'ed for the reception or ceremony."
     }
     %>
     <p><%= result.name %> <%= attending %></p>
@@ -51,13 +56,13 @@ results.forEach(function(result)
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-4 control-label" for="name">Will be attending</label>
+                <label class="col-md-4 control-label" for="name">Accept the invitation</label>
                 <div class="col-md-4">
                     <input class="form-control input-md" required type="radio" name="rsvp_ceremony_and_reception<%=index%>" value="TRUE" placeholder="<%=result.rsvp_ceremony_and_reception%>" <%=attending%>></input>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-4 control-label" for="name">Will not be attending</label>
+                <label class="col-md-4 control-label" for="name">Decline, with regrets</label>
                 <div class="col-md-4">
                     <input class="form-control input-md" required type="radio" name="rsvp_ceremony_and_reception<%=index%>" value="FALSE" placeholder="<%=result.rsvp_ceremony_and_reception%>" <%=isntAttending%>></input>
                 </div>

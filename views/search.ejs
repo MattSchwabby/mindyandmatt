@@ -1,4 +1,4 @@
-<% include partials/header2 %>
+<% include partials/header %>
 
 <div class="smaller-header">
     <div class="container">
@@ -17,25 +17,38 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="user">First Name</label>
                 <div class="col-md-4">
-                    <input id="textinput" class="form-control input-md" required type="text" name="first_name" placeholder="Search for a user"></input>
+                    <input id="textinput1" class="form-control input-md" required type="text" name="first_name" placeholder="Search for a user"></input>
                     <span class="help-block"></span>
                 </div>
         </div>
         <div class="form-group">
             <label class="col-md-4 control-label" for="user">Last Name</label>
                 <div class="col-md-4">
-                    <input id="textinput" class="form-control input-md" required type="text" name="last_name" placeholder="Search for a user"></input>
+                    <input id="textinput2" class="form-control input-md" required type="text" name="last_name" placeholder="Search for a user"></input>
                     <span class="help-block"></span>
                 </div>
         </div>
         <div class="form-group">
             <div class="col-sm-4 col-sm-offset-4">
-                <button type="submit" class="btn btn-primary btn-block"><i class="icon-search"></i> Search</button>
-            </div>
+                <input type="submit" id="register" class="btn btn-primary btn-block" disabled value="Register"><i class="icon-search"></i></input>            </div>
         </div>
         </div>
     </form>
     <a href="../../../">Return to the index</a>
 </div>
+
+<script>
+$('#textinput1, #textinput2').bind('keyup', function() {
+    if(allFilled()) $('#register').removeAttr('disabled');
+});
+
+function allFilled() {
+    var filled = true;
+    $('body input').each(function() {
+        if($(this).val() == '') filled = false;
+    });
+    return filled;
+};
+</script>
 
 <% include partials/footer %>

@@ -724,8 +724,11 @@ CUSTOM CLASSES
 */
 .ceremony-img
 {
- width: 100%;
- min-height: 250px;
+  height: auto; 
+  width: auto; 
+  max-width: 100%;
+/* width: 100%; */
+/* min-height: 250px;*/
 }
 .custom-subheading
 {
@@ -794,5 +797,73 @@ a{
   {
     margin-left: 15px;
     margin-right: 15px;
+  }
+}
+
+.zola-registry-embed img
+{
+  padding-top: 50px;
+  max-width: 100%;
+}
+
+.name
+{
+  padding-top: 5px;
+  margin-bottom: 0px;
+}
+
+.title
+{
+  margin-bottom: 15px;
+}
+
+.wp-title
+{
+  padding-top: 30px;
+}
+
+.registry p
+{
+  padding-top: -50px;
+  margin-top: -50px;
+}
+
+.custom-subheading3
+{
+  margin-top: -70px;
+}
+
+
+
+@media (max-width: 767px)
+{
+  .partyIMG
+  {
+    min-height: 320px;
+  }
+    .wtfwhynospace
+  {
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 500px)
+{
+  .partyIMG
+  {
+    min-height: 150px;
+  }
+  .wp-title
+  {
+    margin-top: 70px;
+  }
+
+}
+
+@media (max-width: 400px)
+{
+  .partyIMG
+  {
+    min-height: 100px;
   }
 }
