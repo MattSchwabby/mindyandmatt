@@ -30,25 +30,25 @@
         </div>
         <div class="form-group">
             <div class="col-sm-4 col-sm-offset-4">
-                <input type="submit" id="register" class="btn btn-primary btn-block" disabled value="Register"><i class="icon-search"></i></input>            </div>
+                <input type="submit" id="register" class="btn btn-primary btn-block" value="search"><i class="icon-search"></i></input>            </div>
         </div>
         </div>
     </form>
     <a href="../../../">Return to the index</a>
 </div>
 
-<script>
-$('#textinput1, #textinput2').bind('keyup', function() {
-    if(allFilled()) $('#register').removeAttr('disabled');
-});
+<!-- <script>
+// $('#textinput1, #textinput2').bind('keyup', function() {
+//     if(allFilled()) $('#register').removeAttr('disabled');
+// });
 
-function allFilled() {
-    var filled = true;
-    $('body input').each(function() {
-        if($(this).val() == '') filled = false;
-    });
-    return filled;
-};
-</script>
-
+// function allFilled() {
+//     var filled = true;
+//     $('body input').each(function() {
+//         if($(this).val() == '') filled = false;
+//     });
+//     return filled;
+// };
+// </script>
+-->
 <% include partials/footer %>

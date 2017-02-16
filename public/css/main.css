@@ -722,6 +722,13 @@ body {
 /*
 CUSTOM CLASSES
 */
+.wedding-party
+{
+  font-size: 25px;
+  padding-bottom: 20px;
+  font-style: italic;
+}
+
 .ceremony-img
 {
   height: auto; 
@@ -740,6 +747,13 @@ CUSTOM CLASSES
 }
 a{
   line-height: 1.75;
+}
+@media (max-width: 992px)
+{
+  .ceremony-img
+  {
+    max-width: 90%;  
+  }
 }
 @media (max-width: 992px)
 {
@@ -841,9 +855,9 @@ a{
   {
     min-height: 320px;
   }
-    .wtfwhynospace
+  .wtfwhynospace
   {
-    margin-top: 70px;
+    height: 200px;
   }
 }
 
