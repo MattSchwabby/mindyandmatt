@@ -1,4 +1,4 @@
-# [Matt and Mindy 2017]
+# Matt and Mindy 2017
 
 I created this website for my upcoming wedding. It's an example of a simple CRUD app with a MySQL DB.
 
