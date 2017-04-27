@@ -14,15 +14,15 @@ var index = 0
 results.forEach(function(result)
 { %>
     <%
-    if(result.rsvp_ceremony_and_reception=1)
+    if(result.rsvp_ceremony_and_reception==1)
     {
         var attending = "will be attending the ceremony and reception."
     }
-    else if(result.rsvp_ceremony_and_reception=0)
+    else if(result.rsvp_ceremony_and_reception==0)
     {
         var attending = "will not be attending the reception and ceremony."
     }
-        else if(result.rsvp_ceremony_and_reception=1)
+    else if(result.rsvp_ceremony_and_reception==null)
     {
         var attending = "has not yet RSVP'ed for the reception or ceremony."
     }

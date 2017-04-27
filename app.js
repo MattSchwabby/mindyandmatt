@@ -37,6 +37,19 @@ app.get("/rsvp/search/user", function(req, res)
     var name =[];
     name.first_name = req.query.first_name;
     name.last_name = req.query.last_name;
+    console.log(req.query);
+    if(name.first_name == '')
+    {
+        console.log("FIRST NAME IS NULL!");
+        res.render("search");
+    }
+    else if(name.last_name == '')
+    {
+        console.log("LAST NAME IS NULL!");
+        res.render("search");
+    }
+    else
+    {
     var connection = mysql.createConnection(
     {
         hostname: process.env.DATABASECONNECTION,
@@ -44,7 +57,7 @@ app.get("/rsvp/search/user", function(req, res)
         port: process.env.DATABASEPORT,
         user: process.env.DATABASEUSER,
         password: process.env.DATABASEPASS,
-        database: 'guest_list'
+        database: 'weddingdb'
     });
     
     connection.connect();
@@ -86,6 +99,7 @@ app.get("/rsvp/search/user", function(req, res)
             }
         }
     });
+    }
 });
 
 app.get("/rsvp/guests/update", function(req, res)
@@ -99,7 +113,7 @@ app.get("/rsvp/guests/update", function(req, res)
         port: process.env.DATABASEPORT,
         user: process.env.DATABASEUSER,
         password: process.env.DATABASEPASS,
-        database: 'guest_list'
+        database: 'weddingdb'
     });
     
     connection.connect();
@@ -564,126 +578,6 @@ app.get("/rsvp/guests/update", function(req, res)
 
 });
 
-
-///UPDATE AS OF TUESDAY JAN 10 EVENING
-///////////////////////////////////
-
-
-    // updateDB(req.query, function(response)
-    // {
-    //     console.log(response);
-    // });
-    
-    
-    /// OLD CODE FOLLOWS
-
-//
-// 
-//     var connection = mysql.createConnection(
-//     {
-//         hostname: process.env.DATABASECONNECTION,
-//         host: process.env.DATABASECONNECTION,
-//         port: process.env.DATABASEPORT,
-//         user: process.env.DATABASEUSER,
-//         password: process.env.DATABASEPASS,
-//         database: 'guest_list'
-//     });
-    
-//     console.log("SUBMITTED FORM IS:");
-//     console.log(req.query);
-//     if(req.query.name5)
-//     {
-//         console.log("SIX ENTRIES");
-//         var statements = [];
-//         var statement = "UPDATE guests SET name='"+ req.query.name0 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception0 + " WHERE id=" + req.query.guest_id0 + ";";
-//         var statement2 = "UPDATE guests SET name='"+ req.query.name1 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception1 + " WHERE id=" + req.query.guest_id1 + ";";
-//         var statement3 = "UPDATE guests SET name='"+ req.query.name2 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception2 + " WHERE id=" + req.query.guest_id2 + ";";
-//         var statement4 = "UPDATE guests SET name='"+ req.query.name3 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception3 + " WHERE id=" + req.query.guest_id3 + ";";
-//         var statement5 = "UPDATE guests SET name='"+ req.query.name4 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception4 + " WHERE id=" + req.query.guest_id4 + ";";
-//         var statement6 = "UPDATE guests SET name='"+ req.query.name5 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception5 + " WHERE id=" + req.query.guest_id5 + ";";
-//         statements.push(statement, statement2, statement3, statement4, statement5, statement6);    }
-//     else if(req.query.name4)
-//     {
-//         console.log("FIVE ENTRIES");     
-//         var statements = [];
-//         var statement = "UPDATE guests SET name='"+ req.query.name0 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception0 + " WHERE id=" + req.query.guest_id0 + ";";
-//         var statement2 = "UPDATE guests SET name='"+ req.query.name1 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception1 + " WHERE id=" + req.query.guest_id1 + ";";
-//         var statement3 = "UPDATE guests SET name='"+ req.query.name2 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception2 + " WHERE id=" + req.query.guest_id2 + ";";
-//         var statement4 = "UPDATE guests SET name='"+ req.query.name3 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception3 + " WHERE id=" + req.query.guest_id3 + ";";
-//         var statement5 = "UPDATE guests SET name='"+ req.query.name4 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception4 + " WHERE id=" + req.query.guest_id4 + ";";
-//         statements.push(statement, statement2, statement3, statement4, statement5);
-//     }
-//     else if(req.query.name3)
-//     {
-//         console.log("FOUR ENTRIES");
-//         var statements = [];
-//         var statement = "UPDATE guests SET name='"+ req.query.name0 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception0 + " WHERE id=" + req.query.guest_id0 + ";";
-//         var statement2 = "UPDATE guests SET name='"+ req.query.name1 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception1 + " WHERE id=" + req.query.guest_id1 + ";";
-//         var statement3 = "UPDATE guests SET name='"+ req.query.name2 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception2 + " WHERE id=" + req.query.guest_id2 + ";";
-//         var statement4 = "UPDATE guests SET name='"+ req.query.name3 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception3 + " WHERE id=" + req.query.guest_id3 + ";";
-//         statements.push(statement, statement2, statement3, statement4);
-//     }
-//     else if(req.query.name2)
-//     {
-//         console.log("THREE ENTRIES");
-//         var statements = [];
-//         var statement = "UPDATE guests SET name='"+ req.query.name0 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception0 + " WHERE id=" + req.query.guest_id0 + ";";
-//         var statement2 = "UPDATE guests SET name='"+ req.query.name1 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception1 + " WHERE id=" + req.query.guest_id1 + ";";
-//         var statement3 = "UPDATE guests SET name='"+ req.query.name2 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception2 + " WHERE id=" + req.query.guest_id2 + ";";
-//         statements.push(statement, statement2, statement3);
-//     }
-//     else if(req.query.name1)
-//     {
-//         console.log("TWO ENTRIES");
-//         var statements = [];
-//         var statement = "UPDATE guests SET name='"+ req.query.name0 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception0 + " WHERE id=" + req.query.guest_id0 + ";";
-//         var statement2 = "UPDATE guests SET name='"+ req.query.name1 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception1 + " WHERE id=" + req.query.guest_id1 + ";";
-//         statements.push(statement, statement2);
-//     }
-//     else
-//     {
-//         console.log("ONE ENTRY");
-//         var statements = [];
-//         var statement = "UPDATE guests SET name='"+ req.query.name0 + "', rsvp_ceremony_and_reception=" + req.query.rsvp_ceremony_and_reception0 + " WHERE id=" + req.query.guest_id0 + ";";
-//         statements.push(statement);
-//     }
-    
-//     connection.connect();
-    
-
-//     statements.forEach(function(item)
-//     {
-//         connection.query(item, function(err,rows,fields)
-//         {
-//             if(err)
-//             {
-//                 console.log(err)
-//             }
-//             else
-//             {
-                
-//             }
-//         })
-//     });
-
-//     connection.query("SELECT * FROM guests WHERE household_id = " + req.query.household_id[0], function(err, rows, fields)
-//     {
-//         if (err)
-//         {
-//             console.log(err);
-//         }
-//         else
-//         {
-//             var name =[];
-//             name.first_name=req.query.first_name;
-//             name.last_name=req.query.last_name;
-//             res.render("results", {results: rows, name: name});
-//         }
-//     });
-
-
-
-
 app.listen(process.env.PORT, process.env.IP, function()
 {
     console.log("SERVER IS LISTENING ON PORT " + process.env.PORT + " AND IP ADDRESS " + process.env.IP);
@@ -699,7 +593,7 @@ app.listen(process.env.PORT, process.env.IP, function()
 //         port: process.env.DATABASEPORT,
 //         user: process.env.DATABASEUSER,
 //         password: process.env.DATABASEPASS,
-//         database: 'guest_list'
+//         database: 'weddingdb'
 //     });
 
 // connection.connect();
