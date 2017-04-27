@@ -778,6 +778,9 @@ a{
   {
     margin-top: 35px;
   }
+  .navbar-custom .navbar-brand {
+    font-size: 1.5em;
+  }
 }
 
 .row
@@ -881,3 +884,7 @@ a{
     min-height: 100px;
   }
 }
+
+/*
+  BUG FIX FOR ISSUE WITH NAV BAR AFTER ADDING RSVP TO NAV
+*/
