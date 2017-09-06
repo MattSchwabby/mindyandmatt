@@ -744,8 +744,14 @@ CUSTOM CLASSES
 .custom-subheading2
 {
   margin-bottom: 45px;
+  margin-top: -50px;
 }
-a{
+.custom-subheading3
+{
+  padding-top: 80px;
+}
+a
+{
   line-height: 1.75;
 }
 @media (max-width: 992px)
